@@ -1,0 +1,12 @@
+.map-container {
+  display: inline-block;
+ float:left;
+  width: 600px;
+}
+
+#info {
+  display: inline-block;
+  width:600px;
+  float:left;
+  margin-left:50px;
+}
