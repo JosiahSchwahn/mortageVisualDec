@@ -61,16 +61,19 @@ function drawRegionsMap() {
             // Now you can do whatever you want with any of the data in the table!
 
             var stateName = data.getValue(i, 1);
-            var importantInfo = data.getValue(i, 2);
-            var otherData = data.getValue(i, 3);
-            var loanToValue = data.getValue(i, 4);
+            var LTV = data.getValue(i, 2);
+            var regionHealth = data.getValue(i, 3);
+            var DTI= data.getValue(i, 4);
+
+            //additional columns if needed
             var otherData3 = data.getValue(i, 5);
 
             // Some output to show simple examples
             $('#info').html("<h1>"+stateName+"</h1>");
-            $('#info').append("<span> Region Health: "+importantInfo+"</span><br />");
-            $('#info').append("<span>Other Data: "+otherData+"</span><br />");
-            $('#info').append("<span>Loan to Value: "+ loanToValue+"</span><br />");
+            
+            $('#info').append("<span> Loan-to-Value: "+LTV+"</span><br />");
+            $('#info').append("<span> Region Health (out of 1000): "+regionHealth+"</span><br />");
+            $('#info').append("<span> DTI: "+ DTI+"</span><br />");
             $('#info').append("<a href='http://wikipedia.org/wiki/"+stateName+"' target='_blank'>Visit Wikipedia for "+stateName+"</a>");
             $('#info').fadeIn(500)
         } else {
