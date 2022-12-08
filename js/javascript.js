@@ -11,15 +11,21 @@ function drawRegionsMap() {
      *  - State             - Human-consumable name we'll show when the hovering on the region
      *  - Important Info    - This is the data we're interested in visualizing
      *  - Other Data        - We're not going to visualize this, but we'll query for it on click
+     * 
+     *   //TO DO - Important from CSV rather than using sample data (build out larger regionDataArray)
+     *           - Add additional columns - (zip codes from sample data)
+     *           - code pen examples samples showing
+     *           - Formula for calculating "risk" for each state based on zip codes 
+     * 
      */
     var regionDataArray = [
-        ['Region', 'State',         "LTV" , 'Region Health', 'DTI'],
-        ['US-NY',  'New York',       300,          105,      101],
-        ['US-SC',  'South Carolina', 300,          103,      101],
-        ['US-PA',  'Pennsylvania',   600,          1024,      1091],
-        ['US-CO',  'Colorado',       0,            1050,      1081],
-        ['US-MT',  'Montana',        200,          1100,      1021],
-        ['US-NV',  'Nevada',        200,          1100,      1021]
+        ['Region', 'State',         'LTV%' , 'Region Health (Out of 1000)', 'DTI%'],
+        ['US-NY',  'New York',       95,              105,                        43],
+        ['US-SC',  'South Carolina', 88,              103,                        24],
+        ['US-PA',  'Pennsylvania',   72,              644,                        33],
+        ['US-CO',  'Colorado',       80,              349,                        47],
+        ['US-MT',  'Montana',        93,              947,                        22],
+        ['US-NV',  'Nevada',         85,              330,                        19]
     ];
 
     // Create a DataTable object based on our data
@@ -60,7 +66,7 @@ function drawRegionsMap() {
             var loanToValue = data.getValue(i, 4);
             var otherData3 = data.getValue(i, 5);
 
-            // Some BS output to show simple examples
+            // Some output to show simple examples
             $('#info').html("<h1>"+stateName+"</h1>");
             $('#info').append("<span> Region Health: "+importantInfo+"</span><br />");
             $('#info').append("<span>Other Data: "+otherData+"</span><br />");
